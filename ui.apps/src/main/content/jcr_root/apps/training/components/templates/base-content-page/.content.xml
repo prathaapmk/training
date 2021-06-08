@@ -3,7 +3,7 @@
     jcr:description="This is Base Page Template"
     jcr:primaryType="cq:Template"
     jcr:title="Base Content Page Template"
-    allowedPaths="[/content/base-content-page(/*.)?]"
+    allowedPaths="[/content(/.)?]"
     ranking="{Long}1">
     <jcr:content
         jcr:primaryType="cq:PageContent"
