@@ -1,5 +1,9 @@
+
 This is Base Page Component Trainig for new static template creation.
 
 <sly data-sly-include="/libs/wcm/core/components/init/init.jsp"/>
 
 <div data-sly-resource="${'parsys' @resourceType = 'wcm/foundation/components/parsys'}"></div>
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='training.base'}">
+</sly>
