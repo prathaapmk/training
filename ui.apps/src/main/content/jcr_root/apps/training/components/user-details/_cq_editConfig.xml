@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:EditConfig"
+    jcr:title="Block text">
+    <cq:inplaceEditing
+        jcr:primaryType="cq:InplaceEditingConfig"
+        active="{Boolean}true"
+        editorType="text">
+        <config jcr:primaryType="nt:unstructured">
+            <rtePlugins jcr:primaryType="nt:unstructured">
+                <table
+                    jcr:primaryType="nt:unstructured"
+                    features="*"/>
+                <styles
+                    jcr:primaryType="nt:unstructured"
+                    features="*">
+                    <styles jcr:primaryType="cq:WidgetCollection">
+                        <white-text
+                            jcr:primaryType="nt:unstructured"
+                            cssName="component-body-text-block__whiteRte"
+                            text="White"/>
+                        <dark-grey-text
+                            jcr:primaryType="nt:unstructured"
+                            cssName="component-body-text-block__darkGreyRte"
+                            text="Dark Grey"/>
+                        <medium-grey-text
+                            jcr:primaryType="nt:unstructured"
+                            cssName="component-body-text-block__mediumGreyRte"
+                            text="Medium Grey"/>
+                        <pink-text
+                            jcr:primaryType="nt:unstructured"
+                            cssName="component-body-text-block__btPinkRte"
+                            text="BT Pink"/>
+                        <purple-text
+                            jcr:primaryType="nt:unstructured"
+                            cssName="component-body-text-block__btPurpleRte"
+                            text="BT Purple"/>
+                        <black-text
+                            jcr:primaryType="nt:unstructured"
+                            cssName="component-body-text-block__btBlackRte"
+                            text="Black"/>
+                        <red-text
+                            jcr:primaryType="nt:unstructured"
+                            cssName="component-body-text-block__btRedRte"
+                            text="Red"/>
+                        <blue-text
+                            jcr:primaryType="nt:unstructured"
+                            cssName="component-body-text-block__btBlueRte"
+                            text="Blue"/>
+                        <green-text
+                            jcr:primaryType="nt:unstructured"
+                            cssName="component-body-text-block__btGreenRte"
+                            text="Green"/>
+                        <font-family-regular
+                            jcr:primaryType="nt:unstructured"
+                            cssName="component-body-text-block__btFontRegularRte"
+                            text="BT Curve Regular"/>
+                        <font-family-light
+                            jcr:primaryType="nt:unstructured"
+                            cssName="component-body-text-block__btFontLightRte"
+                            text="BT Curve HeadLine"/>
+                        <font-family-bold
+                            jcr:primaryType="nt:unstructured"
+                            cssName="component-body-text-block__btFontBoldRte"
+                            text="BT Curve Bold"/>
+                    </styles>
+                </styles>
+                <paraformat
+                    jcr:primaryType="nt:unstructured"
+                    features="*">
+                    <formats
+                        jcr:primaryType="nt:unstructured"
+                        override="true">
+                        <h1
+                            jcr:primaryType="nt:unstructured"
+                            description="Extra large"
+                            tag="h1"/>
+                        <h2
+                            jcr:primaryType="nt:unstructured"
+                            description="Large"
+                            tag="h2"/>
+                        <h3
+                            jcr:primaryType="nt:unstructured"
+                            description="Medium"
+                            tag="h3"/>
+                        <h4
+                            jcr:primaryType="nt:unstructured"
+                            description="Small"
+                            tag="h4"/>
+                        <h5
+                            jcr:primaryType="nt:unstructured"
+                            description="Notes"
+                            tag="h6"/>
+                        <p
+                            jcr:primaryType="nt:unstructured"
+                            description="Paragraph"
+                            tag="p"/>
+                    </formats>
+                </paraformat>
+                <table-style-aem
+                    jcr:primaryType="nt:unstructured"
+                    features="*"/>
+                <misctools
+                    jcr:primaryType="nt:unstructured"
+                    features="*"/>
+            </rtePlugins>
+            <htmlRules jcr:primaryType="nt:unstructured">
+                <docType jcr:primaryType="nt:unstructured">
+                    <typeConfig
+                        jcr:primaryType="nt:unstructured"
+                        useSemanticMarkup="{Boolean}true"/>
+                </docType>
+            </htmlRules>
+            <uiSettings jcr:primaryType="nt:unstructured">
+                <cui jcr:primaryType="nt:unstructured">
+                    <inline
+                        jcr:primaryType="nt:unstructured"
+                        toolbar="[links#modifylink,links#unlink,format#bold,format#italic,justify#justifyleft,justify#justifycenter,justify#justifyright,lists#unordered,lists#ordered,lists#outdent,lists#indent,table#createoredit,#styles,#paraformat,fullscreen#start,control#close,control#save]">
+                        <popovers jcr:primaryType="nt:unstructured">
+                            <styles
+                                jcr:primaryType="nt:unstructured"
+                                items="styles:getStyles:styles-pulldown"
+                                ref="styles"/>
+                            <paraformat
+                                jcr:primaryType="nt:unstructured"
+                                items="paraformat:getFormats:paraformat-pulldown"
+                                ref="paraformat"/>
+                        </popovers>
+                    </inline>
+                    <fullscreen
+                        jcr:primaryType="nt:unstructured"
+                        toolbar="[links#modifylink,links#unlink,format#bold,format#italic,format#underline,subsuperscript#subscript,subsuperscript#superscript,edit#cut,edit#copy,edit#paste-plaintext,findreplace#find,findreplace#replace,undo#undo,undo#redo,justify#justifyleft,justify#justifycenter,justify#justifyright,lists#unordered,lists#ordered,lists#outdent,lists#indent,table#createoredit,spellcheck#checktext,misctools#specialchars,#styles,#paraformat,table-style-aem#touchuitablestyle,fullscreen#start,misctools#sourceedit,control#close,control#save]">
+                        <popovers jcr:primaryType="nt:unstructured">
+                            <styles
+                                jcr:primaryType="nt:unstructured"
+                                items="styles:getStyles:styles-pulldown"
+                                ref="styles"/>
+                            <paraformat
+                                jcr:primaryType="nt:unstructured"
+                                items="paraformat:getFormats:paraformat-pulldown"
+                                ref="paraformat"/>
+                        </popovers>
+                    </fullscreen>
+                    <tableEditOptions
+                        jcr:primaryType="nt:unstructured"
+                        toolbar="[table#insertcolumn-before,table#insertcolumn-after,table#removecolumn,table#insertrow-before,table#insertrow-after,table#removerow,table#mergecells-right,table#mergecells-down,table#mergecells,table#splitcell-horizontal,table#splitcell-vertical,table#selectrow,table#selectcolumn,table#ensureparagraph,table#removetable,undo#undo,undo#redo,table#exitTableEditing]"/>
+                </cui>
+            </uiSettings>
+        </config>
+    </cq:inplaceEditing>
+</jcr:root>
