@@ -1,10 +1,15 @@
 package com.training.learning.core.models;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javax.annotation.PostConstruct;
 
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+import org.joda.time.LocalDate;
 
 @Model(adaptables = Resource.class)
 public class UserDetailsModel {
@@ -63,36 +68,48 @@ public class UserDetailsModel {
 	@PostConstruct
 	public void init()
 	{
-		age = ageLogic();
-		experience =expLogic();
+		/*age = ageLogic();
+		experience =expLogic(); */
+		
+		age = globalLogic(dob);
+		experience=globalLogic(joiningDate);
+		
 	}
 	
 	public int ageLogic()
 	{
-		/*
-		 * DateTimeFormatter dfm =
-		 * DateTimeFormatter.ofPattern("yyyy-MM-dd'T'hh:mm:ss.000Z "); LocalDateTime l =
-		 * LocalDateTime.now();
-		 * 
-		 * LocalDateTime oldDate = LocalDateTime.parse(dob, dfm); Duration d =
-		 * Duration.between(l, oldDate); int days =(int) (d.toHours()/24);
-		 */
+		DateTimeFormatter dfm = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+			
+		LocalDateTime oldDate = LocalDateTime.parse(dob, dfm);
+		LocalDateTime l = LocalDateTime.now();
+		Duration d = Duration.between(oldDate,l);
+		int days =(int) (d.toHours()/24);
 		
-		return 29;
+		return days/365;
 		
 	}
 	public int expLogic()
 	{
 		
-		/*
-		 * DateTimeFormatter dfm =
-		 * DateTimeFormatter.ofPattern("yyyy-MM-dd'T'hh:mm:ss.0 "); LocalDateTime l =
-		 * LocalDateTime.now();
-		 * 
-		 * LocalDateTime oldDate = LocalDateTime.parse(joiningDate, dfm); Duration d =
-		 * Duration.between(l, oldDate); int days =(int) (d.toHours()/24);
-		 */
-		return 2;
+		DateTimeFormatter dfm = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+		
+		LocalDateTime oldDate = LocalDateTime.parse(joiningDate, dfm);
+		LocalDateTime l = LocalDateTime.now();
+		Duration d = Duration.between(oldDate,l);
+		int days =(int) (d.toHours()/24);
+		return days/365;
+		
+	}
+	
+	public int globalLogic(String joindate)
+	{
+		DateTimeFormatter dfm = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+		
+		LocalDateTime oldDate = LocalDateTime.parse(joindate, dfm);
+		LocalDateTime l = LocalDateTime.now();
+		Duration d = Duration.between(oldDate,l);
+		int days =(int) (d.toHours()/24);
+		return days/365;
 		
 	}
 	

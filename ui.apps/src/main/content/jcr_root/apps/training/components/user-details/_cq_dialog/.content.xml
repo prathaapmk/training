@@ -44,7 +44,6 @@
                                                 fieldDescription="Date Of Birth"
                                                 fieldLabel="Date Of Birth"
                                                 maxDate="today"
-                                                minDate="2018-04-02"
                                                 name="./dob"
                                                 type="datetime"/>
                                             <compname
@@ -58,7 +57,9 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
                                                 fieldDescription="Joining Date"
                                                 fieldLabel="Joining Date"
-                                                name="./joiningDate"/>
+                                                name="./joiningDate"
+                                                type="datetime"
+                                                valueFormat="YYYY-MM-D[T]HH:mm:ss.000Z"/>
                                             <biodata
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="cq/gui/components/authoring/dialog/richtext"
