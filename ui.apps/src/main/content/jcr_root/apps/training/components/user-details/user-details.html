@@ -1,4 +1,5 @@
-Hi This is UserDetails <br>
+<sly data-sly-use.obj="com.training.learning.core.models.UserDetailsModel"/>
+Hi This is UserDetails from FE <br>
 
 ${properties.fname} <br>
 ${properties.lname} <br>
@@ -8,4 +9,15 @@ ${'dd-MM-yyyy' @ format=properties.joiningDate}<br>
 ${properties.biodata @context='html'}<br>
 
 Prathap's Age is : 20 
-Prathap's completed 1 year in the company. 
+Prathap's completed 1 year in the company.<br> 
+
+Hi This is UserDetails from BE <br>
+
+${obj.fname} <br>
+${obj.lname} <br>
+${obj.dob} <br>
+${obj.compname} <br>${obj.joiningDate} <br>
+${obj.biodata @context='html'} <br>
+${obj.biodata}<br>
+${obj.experience}<br>
+${obj.age}<br>
