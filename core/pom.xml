@@ -209,5 +209,9 @@ Import-Package: javax.annotation;version=0.0.0,*
             <version>1.4.4</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+     <groupId>org.apache.felix</groupId>
+     <artifactId>org.apache.felix.scr.annotations</artifactId>
+ </dependency>
     </dependencies>
 </project>
