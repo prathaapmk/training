@@ -116,12 +116,12 @@
             <version>${project.version}</version>
         </dependency>
 
-        <dependency>
+       <!-- <dependency>
             <groupId>com.training.learning</groupId>
             <artifactId>training.ui.frontend</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
-        </dependency>
+        </dependency> -->
 
         <dependency>
             <groupId>com.training.learning</groupId>
