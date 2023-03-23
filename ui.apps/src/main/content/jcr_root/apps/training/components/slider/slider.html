@@ -1,0 +1,70 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2017 Adobe Systems Incorporated
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+
+
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html">
+</sly>
+<sly data-sly-call="${template.placeholder @ isEmpty='properties.sliderProps'}"></sly>
+
+<sly data-sly-use.someText="/apps/weretail/components/content/slider/sample-template.html"/>
+
+<div class="container">
+  <h2>Carousel Example</h2>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+     <ol class="carousel-indicators">
+    <sly data-sly-list.props="${resource.getChildren}">
+	<sly  data-sly-test="${props.name == 'sliderProps'}" data-sly-list.prop="${props.getChildren}">
+      <li data-target="#myCarousel" data-slide-to="${propList.index}" class="${propList.index==0?'active':''}"></li>
+      </sly>
+      </sly>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" data-sly-list.props="${resource.getChildren}">
+	<sly  data-sly-test="${props.name == 'sliderProps'}" data-sly-list.prop="${props.getChildren}">
+      <div class="item ${propList.index ==0?'active':''}"  >
+        <img data-sly-test.imagePath="${prop.image}" src="${imagePath}" alt="Los Angeles" style="width:100%;">
+        <div class="carousel-caption">
+          <h3 data-sly-test.title="${prop.title}">${title}</h3>
+          <p data-sly-test.desc="${prop.description}">${desc @context='html'}DATE : ${'yyyy-MM-dd HH:mm' @ format=prop.timeStamp,timezone='GMT+00:30'}</p>
+        </div>
+      </div>
+      </sly>
+
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+
+
+
+
+<sly data-sly-call="${someText.object @ text='hey How are you?'}"/>
+
+<sly data-sly-call="${someText.object @ text='heloo I am good'}"/>
+
+
