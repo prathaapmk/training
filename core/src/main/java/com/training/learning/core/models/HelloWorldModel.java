@@ -41,6 +41,11 @@ public class HelloWorldModel {
     @Default(values="No resourceType")
     protected String resourceType;
 
+    @ValueMapValue
+    private String text;
+
+    @ValueMapValue
+    private String customeField;
     @OSGiService
     private SlingSettingsService settings;
     @SlingObject
@@ -49,6 +54,8 @@ public class HelloWorldModel {
     private ResourceResolver resourceResolver;
 
     private String message;
+
+
 
     @PostConstruct
     protected void init() {
@@ -67,4 +74,11 @@ public class HelloWorldModel {
         return message;
     }
 
+    public String getText() {
+        return text;
+    }
+
+    public String getCustomeField() {
+        return customeField;
+    }
 }
