@@ -1,0 +1,17 @@
+
+
+<h1> These are from Sightly PROPS</h1>
+
+${properties.text}<br>
+${properties.fname}<br>
+${properties.dob @format='DD/MM/YY'}<br>
+
+========================================================================
+
+<h1> These are from JAVA CODE</h1>
+<sly data-sly-use.sampleComp="com.training.learning.core.models.SampleComponentModel"></sly>
+
+${sampleComp.text}<br>
+${sampleComp.fname}<br>
+JCR Created Format :${sampleComp.dob}<br>
+DD MM YYY Format: ${sampleComp.formatedDate}<br>
