@@ -187,7 +187,7 @@ Import-Package: javax.annotation;version=0.0.0,*
             <artifactId>junit-addons</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
+       <dependency>
             <groupId>io.wcm</groupId>
             <artifactId>io.wcm.testing.aem-mock.junit5</artifactId>
             <exclusions>
