@@ -1,0 +1,16 @@
+This is Sample Custom Component
+
+
+<sly data-sly-use.props="com.training.learning.core.models.MultiFieldComponentModel"></sly>
+
+<h1> Iterate the Names with DATA SLY LIST</h1>
+
+<ul data-sly-list="${props.studentName}">
+    <li>${item}</li>
+</ul>
+
+<h1>Iterate the Country With Currency with DATA SLY REPEAT</h1>
+<ul data-sly-list="${props.countryProps}">
+    <li>${item.country}</li>
+    <li>${item.currency}</li>
+</ul>

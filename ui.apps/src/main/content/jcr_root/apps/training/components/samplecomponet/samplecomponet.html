@@ -9,9 +9,11 @@ ${properties.dob @format='DD/MM/YY'}<br>
 ========================================================================
 
 <h1> These are from JAVA CODE</h1>
-<sly data-sly-use.sampleComp="com.training.learning.core.models.SampleComponentModel"></sly>
+<sly data-sly-use.sampleComp="${'com.training.learning.core.models.SampleComponentModel' @someRandomValue='Please Prepare Sling Models'}" ></sly>
 
-${sampleComp.text}<br>
-${sampleComp.fname}<br>
-JCR Created Format :${sampleComp.dob}<br>
-DD MM YYY Format: ${sampleComp.formatedDate}<br>
+${sampleComp.getText}<br>
+${sampleComp.getFname}<br>
+JCR Created Format :${sampleComp.getDob}<br>
+DD MM YYY Format: ${sampleComp.getFormatedDate}<br>
+All Fields: ${sampleComp.getallFeilds}<br>
+ALL Request Params: ${sampleComp.allRequestParamas}<br>
