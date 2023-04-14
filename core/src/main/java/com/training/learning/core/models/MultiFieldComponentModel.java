@@ -3,6 +3,7 @@ package com.training.learning.core.models;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.training.learning.core.services.AddNodeToResource;
+import com.training.learning.core.services.ReadJsonFromAPIService;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -11,6 +12,7 @@ import org.apache.sling.models.annotations.Exporter;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.*;
 import org.apache.sling.models.factory.ModelFactory;
+import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,6 +21,7 @@ import javax.jcr.Node;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,7 +47,10 @@ public class MultiFieldComponentModel {
     SlingHttpServletRequest req;
 
     @OSGiService
-    AddNodeToResource addNodeToResource;
+    AddNodeToResource addNodeToResource ;
+
+    @OSGiService
+    ReadJsonFromAPIService readJsonFromAPIService;
     @ChildResource
     private List<CountryProps> countryProps;
     private boolean valuChaced;
@@ -52,6 +58,7 @@ public class MultiFieldComponentModel {
     @PostConstruct
     public void init()
     {  try {
+        readJsonFromAPIService.readJsonfromAPI();
         Session session = resourceResolver.adaptTo(Session.class);
         Node node = session.getNode(currentResource.getPath());
         addNodeToResource.addNode(session,node);
@@ -59,7 +66,11 @@ public class MultiFieldComponentModel {
             throw new RuntimeException(e);
         }  catch (RepositoryException e) {
             e.printStackTrace();
-        }
+        } catch (JSONException e) {
+        throw new RuntimeException(e);
+    } catch (IOException e) {
+        throw new RuntimeException(e);
+    }
         String str = "/content/training/us/en";
         PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
        // CountryProps pp = resourceResolver.adaptTo(CountryProps.class);
