@@ -1,9 +1,11 @@
 package com.training.learning.core.services.impl;
 
 import com.training.learning.core.services.ReadJsonFromAPIService;
+import com.training.learning.core.services.Service;
+import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,9 +21,17 @@ import java.net.URL;
 public class ReadJsonFromAPIServiceImpl implements ReadJsonFromAPIService {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
+    @Reference(target = "(component.name=service1)")
+    Service service1;
+
+    @Reference(target = "(component.name=Service2)")
+    Service service2;
+
     @Override
     public String readJsonfromAPI() throws JSONException {
         try {
+           service1.m1();
+           service2.m1();
             String urlString = "https://dummyjson.com/products/1";
             URL url = new URL(urlString);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();

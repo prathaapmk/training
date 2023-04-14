@@ -34,8 +34,10 @@ public class ReadJsonModelForChecking {
 
         Resource r = resourceResolver.getResource(datpath);
 
+
         Session session = resourceResolver.adaptTo(Session.class);
         Node node = session.getNode(r.getPath());
+        node.hasNode("data");
         Node customNode = node.addNode("data");
         customNode.setProperty("jsonData",valuesfromApi);
         session.save();
