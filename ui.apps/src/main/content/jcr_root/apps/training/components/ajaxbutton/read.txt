@@ -1,0 +1,79 @@
+Sling Models -
+1) FE Frame React/Angular they need Json Structre
+2) I am getting value from Dialog, based on that Values in Dialog i want to
+Manuplulate/retriving the Dat1
+
+Services - For re-usability/Instance Creation , Based on Businees logic . these data will be sent to
+
+Servlet/ Sling Models etc.
+
+Servlets
+
+Request - Response
+
+How to hit a servlet from FE
+
+GET   - Retrival Purpose
+POST  - Login/ - Some Secure Information/ Form Submissions
+DELETE - Delete Any Data
+PUT  - Kind Update any Data .
+
+
+How to write a Servlet from Backend Java
+
+1) Extends
+
+SlingAllMethodServlet
+
+        doPost
+        doGet
+
+SlingSafeMethodServlet
+        doGet
+
+
+Java Servlet
+Generic Servlet
+SlingSafeServlet
+SlingAllMethodServlet
+How to call an Ajax call and its use?
+
+
+
+SlingAllMethodServlet
+
+SlingSafeServlet
+
+Servlet
+
+        @Component(service=Servlet.class)
+
+        class ServletName extends SlingSafeServlet
+        {
+
+                doGet()
+                {
+
+
+                }
+
+        }
+
+
+        2 Ways  - How many you can register a servlet
+
+1) Path
+
+
+2) ResourceType
+
+
+1) Make sure our Bundle Active ?
+2) Service/Servlet/Sling Model
+3) Service - Osgi - Services
+        Servlet - OSGI - Components
+        Sling Models - Sling - Sling Adapaters
+
+
+How do you create Servlet with Path
+How do you call a Servlet via Ajax Call
