@@ -42,7 +42,7 @@ import java.io.IOException;
         methods=HttpConstants.METHOD_GET,
         extensions="txt")
 @ServiceDescription("Simple Demo Servlet")
-public class SimpleServlet extends SlingSafeMethodsServlet {
+public class SimpleServlet extends SlingAllMethodsServlet {
 
     private static final long serialVersionUID = 1L;
 

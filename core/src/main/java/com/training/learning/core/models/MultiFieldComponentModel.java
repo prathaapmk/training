@@ -13,6 +13,7 @@ import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.*;
 import org.apache.sling.models.factory.ModelFactory;
 import org.json.JSONException;
+import org.osgi.service.component.propertytypes.ServiceRanking;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -51,6 +52,7 @@ public class MultiFieldComponentModel {
 
     @OSGiService
     ReadJsonFromAPIService readJsonFromAPIService;
+
     @ChildResource
     private List<CountryProps> countryProps;
     private boolean valuChaced;
