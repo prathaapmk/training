@@ -35,7 +35,6 @@ public class ImageListSlingModel {
     List<String> imagelist = new ArrayList();
 
 
-
     private Session session;
 
     @PostConstruct
