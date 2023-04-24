@@ -22,7 +22,7 @@ import java.util.List;
 )
 public class ImageListSlingModel {
 
-    public final static String RESOURCE_TYPE = "/apps/training/components/ImageListComponent";
+    public final static String RESOURCE_TYPE = "/apps/training/components/dampathcomponent";
     @SlingObject
     private Resource currentResource;
     @SlingObject
