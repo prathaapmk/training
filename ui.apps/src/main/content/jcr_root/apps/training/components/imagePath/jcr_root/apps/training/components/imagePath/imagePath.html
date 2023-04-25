@@ -1,0 +1,8 @@
+<sly data-sly-use.imageAsset="com.training.learning.core.models.ImagePathModelModel"></sly>
+<h1>This is path of the Folder</h1>
+${properties.imagePath}
+
+<h1>This is the list of Assets in the given Folder</h1>
+<ul data-sly-list="${imageAsset.imagelist}">
+    <li>${item}</li>
+</ul>
