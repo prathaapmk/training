@@ -6,6 +6,7 @@ import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.osgi.service.component.annotations.*;
+import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,6 +19,7 @@ import java.net.URL;
 
 
 @Component(service = ReadJsonFromAPIService.class,immediate = true)
+@Designate(ocd = com.training.learning.core.config.SampleOSGIConfiguration.class)
 public class ReadJsonFromAPIServiceImpl implements ReadJsonFromAPIService {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
