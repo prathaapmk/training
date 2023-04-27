@@ -1,5 +1,6 @@
 package com.training.learning.core.services.impl;
 
+import com.training.learning.core.config.SampleOSGIConfiguration;
 import com.training.learning.core.services.ReadJsonFromAPIService;
 import com.training.learning.core.services.Service;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
@@ -29,12 +30,28 @@ public class ReadJsonFromAPIServiceImpl implements ReadJsonFromAPIService {
     @Reference(target = "(component.name=Service2)")
     Service service2;
 
+    private String url;
+
+    @Activate @Modified
+    public void getAllConfigs(SampleOSGIConfiguration sampleOSGIConfiguration)
+    {
+        url = sampleOSGIConfiguration.getUrl();
+        logger.info("OSGI CONFIG Actiavted or Modified"+url);
+    }
+
+    @Deactivate
+    public void deactiveConfigs(SampleOSGIConfiguration sampleOSGIConfiguration)
+    {
+        url = "";
+        logger.info("OSGI CONFIG Deactivated"+url);
+    }
+
     @Override
     public String readJsonfromAPI() throws JSONException {
         try {
            service1.m1();
            service2.m1();
-            String urlString = "https://dummyjson.com/products/1";
+            String urlString = getUrl();
             URL url = new URL(urlString);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
@@ -59,5 +76,9 @@ public class ReadJsonFromAPIServiceImpl implements ReadJsonFromAPIService {
             return "json2";
         }
 
+    }
+
+    public String getUrl() {
+        return url;
     }
 }
