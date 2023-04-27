@@ -14,7 +14,7 @@ public @interface SampleOSGIConfiguration {
             name = "URL",
             description = "This property indicates whether the configuration values will taken into account or not",
             type = AttributeType.STRING)
-    public String getUrl() default "https://qa.dummyjson.com/products/1";
+    public String getUrl() default "https://dummyjson.com/products/1";
 
     //Checkbox
     @AttributeDefinition(
