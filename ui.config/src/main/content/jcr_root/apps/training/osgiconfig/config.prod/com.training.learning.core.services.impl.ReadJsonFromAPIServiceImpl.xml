@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    enableConfig="{Boolean}false"
+    getNumberValue="{Long}555"
+    getStringValues="[4444,77777]"
+    getUrl="https://www.google.com"
+        foo_bar="foo"/>
