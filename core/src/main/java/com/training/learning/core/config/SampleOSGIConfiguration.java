@@ -26,6 +26,9 @@ public @interface SampleOSGIConfiguration {
     @AttributeDefinition(name = "MultipleValues", description = "Multi Configuration values")
     String[] getStringValues() default {"1","3","55555"};
 
+    @AttributeDefinition(name = "Password", description = "Password value", type=AttributeType.PASSWORD)
+    String password() default "abcd";
+
     @AttributeDefinition(name = "NumberValue", description = "Number values", type=AttributeType.INTEGER)
     int getNumberValue() default 10;
 

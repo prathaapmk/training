@@ -63,7 +63,7 @@ public class MultiFieldComponentModel {
         readJsonFromAPIService.readJsonfromAPI();
         Session session = resourceResolver.adaptTo(Session.class);
         Node node = session.getNode(currentResource.getPath());
-        addNodeToResource.addNode(session,node);
+        addNodeToResource.addNode(node);
         }catch (PathNotFoundException e) {
             throw new RuntimeException(e);
         }  catch (RepositoryException e) {

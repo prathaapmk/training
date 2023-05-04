@@ -7,5 +7,5 @@ public interface AddNodeToResource {
 
    // public void addNode();
 
-    void addNode(Session session, Node node);
+    void addNode( Node node);
 }
