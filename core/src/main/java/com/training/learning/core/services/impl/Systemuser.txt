@@ -1,0 +1,16 @@
+
+System User
+
+http://localhost:4502/crx/explorer/index.jsp
+
+1) create a system user
+                    with path of the /home/user/system
+2) Do user Mapping in Felix COnsole
+3) with the help of Below code you can get the resourceresolver
+@Reference
+ResourceResolverFactory rrf
+ final Map<String, Object> authInfo = new HashMap<>();
+            authInfo.put(ResourceResolverFactory.SUBSERVICE,
+                    "testwrite");
+            ResourceResolver rr = rrf.getServiceResourceResolver(authInfo);
+            session = rr.adaptTo(Session.class);
