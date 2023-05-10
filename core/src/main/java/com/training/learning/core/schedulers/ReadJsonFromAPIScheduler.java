@@ -10,8 +10,8 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Component(service = Runnable.class)
-@Designate(ocd = com.training.learning.core.schedulers.ReadJsonFromAPIScheduler.CronExpressionConfiguration.class)
+@Designate(ocd = ReadJsonFromAPIScheduler.CronExpressionConfiguration.class)
+@Component(service = Runnable.class,immediate = true)
 public class ReadJsonFromAPIScheduler implements  Runnable{
 
     @Reference
@@ -19,17 +19,17 @@ public class ReadJsonFromAPIScheduler implements  Runnable{
 
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
    @ObjectClassDefinition(name="Read API Json",description = "Reading")
-    public @interface CronExpressionConfiguration
+    public static @interface CronExpressionConfiguration
    {
        @AttributeDefinition(name = "Cron Expression",type = AttributeType.STRING)
-       public String getCronExp() default "* * * * * *";
+       public String getCronExp() default "* * * * * ?";
 
        @AttributeDefinition(
                name = "Scheduler Name",
                description = "Enter a unique identifier that represents name of the scheduler",
                type = AttributeType.STRING
        )
-       String schedulerName() default "CronExpreesion Configuration";;
+       public String schedulerName() default "CronExpreesion Configuration";;
 
    }
 
@@ -37,9 +37,7 @@ public class ReadJsonFromAPIScheduler implements  Runnable{
     @Activate
     protected void activate(CronExpressionConfiguration configuration) {
         LOGGER.info("{}: initializing properties for scheduler", configuration);
-
         addScheduler(configuration);
-
     }
 
     private void addScheduler( CronExpressionConfiguration configuration) {
@@ -77,6 +75,4 @@ public class ReadJsonFromAPIScheduler implements  Runnable{
     public void run() {
         LOGGER.info("Calling this Scheduler Every Second");
     }
-
-
 }
