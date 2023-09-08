@@ -1,0 +1,35 @@
+
+
+<h1> These are from Sightly PROPS</h1>
+
+${properties.firstName}<br>
+${properties.lastName}<br>
+${properties.text}<br>
+
+========================================================================
+
+<h1> These are from JAVA CODE</h1>
+<sly data-sly-use.myfirstsling="com.training.learning.core.models.MyFirstSlingModel" ></sly>
+
+${myfirstsling.firstName}<br>
+${myfirstsling.lastName}<br>
+${myfirstsling.text}
+
+<div>
+
+<ul data-sly-list="${myfirstsling.studentName}">
+<li>
+StudentNames :${item}
+</li>
+</ul>
+</div>
+
+<sly data-sly-list="${myfirstsling.countryProps}">
+
+<ul>
+<li> ${item.country} ::::: ${item.currency}
+</li>
+
+</ul>
+
+</sly>
