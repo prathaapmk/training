@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:vlt="http://www.day.com/jcr/vault/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:created="{Date}2023-03-29T13:44:05.166+05:30"
+    jcr:createdBy="admin"
+    jcr:lastModified="{Date}2023-03-29T13:44:05.166+05:30"
+    jcr:lastModifiedBy="admin"
+    jcr:primaryType="vlt:PackageDefinition"
+    buildCount="1"
+    group="my_packages"
+    lastUnwrapped="{Date}2023-03-29T13:44:05.166+05:30"
+    lastUnwrappedBy="admin"
+    lastWrapped="{Date}2023-03-29T13:44:05.166+05:30"
+    lastWrappedBy="admin"
+    name="richtext"
+    version=""/>
