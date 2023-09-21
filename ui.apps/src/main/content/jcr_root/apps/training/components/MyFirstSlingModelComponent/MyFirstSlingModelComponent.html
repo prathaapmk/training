@@ -1,0 +1,40 @@
+
+
+<h1> These are from Sightly PROPS</h1>
+
+${properties.contactNumber}<br>
+${properties.aboutUs}<br>
+${properties.corporate}<br>
+${properties.moreFromUS}<br>
+${properties.sales}<br>
+${properties.text}<br>
+
+<sly data-sly-list.obj="${resource.getChildren}">
+    <ul data-sly-list.t="${obj.getChildren}" data-sly-test="${obj.name == 'countryProps'}">
+        <li> ${t.country} :::: ${t.currency}</li>
+    </ul>
+</sly>
+
+
+========================================================================
+
+<h1> These are from JAVA CODE</h1>
+<sly data-sly-use.myFirstSlingComponent="com.training.learning.core.models.MyFirstSlingModel"></sly>
+
+${myFirstSlingComponent.contactNumber}<br>
+${myFirstSlingComponent.aboutUs}<br>
+${myFirstSlingComponent.corporate}<br>
+${myFirstSlingComponent.moreFromU}<br>
+${myFirstSlingComponent.sales}<br>
+${myFirstSlingComponent.text}<br>
+
+<sly>
+
+    <ul data-sly-list="${myFirstSlingComponent.countryProps}">
+        <li> ${item.country} :::: ${item.currency}</li>
+
+    </ul>
+</sly>
+
+
+
