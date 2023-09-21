@@ -9,6 +9,11 @@ ${properties.moreFromUS}<br>
 ${properties.sales}<br>
 ${properties.text}<br>
 
+<sly data-sly-list.obj="${resource.getChildren}">
+    <ul data-sly-list.t="${obj.getChildren}" data-sly-test="${obj.name == 'countryProps'}">
+        <li> ${t.country} :::: ${t.currency}</li>
+    </ul>
+</sly>
 
 
 ========================================================================
@@ -22,4 +27,14 @@ ${myFirstSlingComponent.corporate}<br>
 ${myFirstSlingComponent.moreFromU}<br>
 ${myFirstSlingComponent.sales}<br>
 ${myFirstSlingComponent.text}<br>
+
+<sly>
+
+    <ul data-sly-list="${myFirstSlingComponent.countryProps}">
+        <li> ${item.country} :::: ${item.currency}</li>
+
+    </ul>
+</sly>
+
+
 
