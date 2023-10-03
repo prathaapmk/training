@@ -15,8 +15,12 @@
  */
 package com.training.learning.core.schedulers;
 
+import org.apache.sling.commons.scheduler.ScheduleOptions;
+import org.apache.sling.commons.scheduler.Scheduler;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Modified;
+import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.Designate;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
@@ -37,7 +41,7 @@ public class SimpleScheduledTask implements Runnable {
     public static @interface Config {
 
         @AttributeDefinition(name = "Cron-job expression")
-        String scheduler_expression() default "*/30 * * * * ?";
+        String scheduler_expression() default "0 */1 * * * ?";
 
         @AttributeDefinition(name = "Concurrent task",
                              description = "Whether or not to schedule this task concurrently")
@@ -45,21 +49,37 @@ public class SimpleScheduledTask implements Runnable {
 
         @AttributeDefinition(name = "A parameter",
                              description = "Can be configured in /system/console/configMgr")
-        String myParameter() default "";
+        String myParameter() default "sample";
     }
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
+    @Reference
+    private Scheduler scheduler ;
 
     private String myParameter;
-    
+    private String cronExpression;
+    private String nameOfSceheduler;
     @Override
     public void run() {
-        logger.debug("SimpleScheduledTask is now running, myParameter='{}'", myParameter);
+        logger.info("SimpleScheduledTask is now running, myParameter='{}'", myParameter);
     }
 
     @Activate
+    @Modified
     protected void activate(final Config config) {
         myParameter = config.myParameter();
+        cronExpression=config.scheduler_expression();
+        nameOfSceheduler = config.myParameter();
+        addScheduler();
     }
+    
+    private void addScheduler() {  
+          ScheduleOptions scheduleOptions = this.scheduler.EXPR(cronExpression);
+          scheduleOptions.name(nameOfSceheduler);
+          scheduleOptions.canRunConcurrently(false);
+          this.scheduler.schedule(this, scheduleOptions);
+          this.logger.info("Scheduler added");
+        
+}
 
 }

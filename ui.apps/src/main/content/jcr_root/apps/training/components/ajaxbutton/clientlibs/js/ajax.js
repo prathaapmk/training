@@ -5,7 +5,8 @@ $(document).ready(function(){
      });
    });*/
 
-  var url = document.getElementById("resoucerTypeId").value+".txt";
+  var url = "/bin/training/test";
+  //document.getElementById("resoucerTypeId").value+".txt";
   console.log("url"+url);
   $("button").click(function(){
     $.get(url, function(data, status){
