@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Properties"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <text
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Text"
+                        name="./text"/>
+                    <firstName
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="First name"
+                        name="./firstName"/>
+                    <lastName
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Last name"
+                        name="./lastName"/>
+                    <dob
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                        displayedFormat="MM-DD-YYYY HH:mm"
+                        fieldDescription="Based on Timestamp the label will be displayed"
+                        fieldLabel="Dob Stamp"
+                        maxDate="today"
+                        name="./dob"
+                        type="datetime"
+                        typeHint="Date"
+                        valueFormat="YYYY-MM-DD[T]HH:mm:ss.000Z"/>
+                    <studentName
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                        composite="false"
+                        fieldLabel="Student Names">
+                        <field
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Name"
+                            name="./studentName"/>
+                    </studentName>
+                    <sliderFields
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                        composite="true"
+                        fieldLabel="Add the required fields">
+                        <field
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Country Fields"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                            name="./countryProps">
+                            <items jcr:primaryType="nt:unstructured">
+                                <country
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Country"
+                                    name="country"
+                                    required="{Boolean}true"/>
+                                <currency
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Currency"
+                                    name="currency"/>
+                            </items>
+                        </field>
+                    </sliderFields>
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>

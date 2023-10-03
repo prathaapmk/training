@@ -1,5 +1,6 @@
 package com.training.learning.core.servlets;
 
+import com.training.learning.core.services.FetchDataServicefromJson;
 import com.training.learning.core.services.ReadJsonFromAPIService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -29,6 +30,9 @@ public class SampleServlet extends SlingSafeMethodsServlet {
 
     @Reference
     ReadJsonFromAPIService readJsonFromAPIService;
+    
+    @Reference
+    FetchDataServicefromJson fetchdata;
 
     @Override
     protected void doGet(final SlingHttpServletRequest req,
@@ -36,8 +40,9 @@ public class SampleServlet extends SlingSafeMethodsServlet {
 
         String json= StringUtils.EMPTY;
         try {
-         json=    readJsonFromAPIService.readJsonfromAPI();
-        } catch (JSONException e) {
+         json=    fetchdata.fetchDatafromJsonApi();
+        		 //readJsonFromAPIService.readJsonfromAPI();
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
        // final String str = "This is Demo Servlet";
